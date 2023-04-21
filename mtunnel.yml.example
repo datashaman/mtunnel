@@ -1,0 +1,26 @@
+jumpbox:
+  dont_sudo: true
+  ssh_address: bastion.example.com
+
+  # connection_attempts: 1
+  # identity_file: ~/.ssh/myid
+  # silent: False
+  # ssh_path: /usr/bin
+  # ssh_port: port
+  # ssh_user: user
+  # strict_host_key_checking: null (bool)
+  # timeout: 60
+
+region: us-east-1
+profile: default
+
+stages:
+  staging:
+    mysql:
+      bind_port: 3306
+      host_address: staging-rds-0.us-east-1.rds.amazonaws.com
+      host_port: 3306
+    es:
+      bind_port: 9200
+      host_address: vpc-staging-abcdefghijkl.us-east-1.es.amazonaws.com
+      host_port: 443
